@@ -161,6 +161,7 @@ function GameStat() {
                   id="name"
                   ref={searchSpec}
                   onChange={searchSpecific}
+                  autoComplete="off"
                 ></input>
               </form>
 

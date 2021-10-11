@@ -3,9 +3,6 @@ import { useGlobalContext } from "../context";
 import { Link } from "react-router-dom";
 
 function Username() {
-  //   const api = "50cf2811-0f6c-4bf3-a4b1-95d0eb29e4c0";
-  //   const trn = "TRN-Api-Key";
-
   const { name, platform, gameName } = useGlobalContext();
   let game = gameName;
   game = game.toLowerCase();
@@ -16,7 +13,6 @@ function Username() {
   const url = "/v2/" + game + "/standard/profile/" + platform + "/" + name;
   async function fetchUsername() {
     try {
-      //   const headers = { "TRN-Api-Key": "50cf2811-0f6c-4bf3-a4b1-95d0eb29e4c0" };
       const response = await fetch(url, {
         method: "GET",
         headers: {
@@ -40,8 +36,6 @@ function Username() {
       }
     } catch (error) {
       setUserInfo(null);
-      console.log("Error");
-      console.log(error);
     }
   }
   useEffect(() => {
@@ -56,15 +50,15 @@ function Username() {
     const { avatar, username, stats } = userInfo;
     return (
       <div className="user-stats">
-        <img src={avatar} />
-        <h7>{username}</h7>
-        <h7>{platform}</h7>
+        <img src={avatar} alt="profile avatar" />
+        <h6>{username}</h6>
+        <h6>{platform}</h6>
 
         <ul>
           {Object.keys(stats).map((stat, i) => {
             return (
-              <div className="stat">
-                <div key={i}>
+              <div className="stat" key={i}>
+                <div>
                   <li className="stat-head">
                     <span>{stats[stat].displayName}</span>
                   </li>

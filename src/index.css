@@ -346,7 +346,7 @@ h2 {
   margin: auto;
   display: block;
 }
-.user-stats h7 {
+.user-stats h6 {
   display: block;
   font-size: 2rem;
   font-weight: 200;
@@ -388,7 +388,7 @@ h2 {
   border: none;
   font-size: 3rem;
 }
-.single-game h7 {
+.single-game h6 {
   font-size: 2rem;
 }
 .stat-card-container {
@@ -405,7 +405,7 @@ h2 {
 .stat-card-container img {
   max-width: 100%;
 }
-.stat-card-container h7 {
+.stat-card-container h6 {
   font-size: 2rem;
   font-weight: 800;
 }

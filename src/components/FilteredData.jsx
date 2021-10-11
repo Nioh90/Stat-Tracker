@@ -4,15 +4,11 @@ import { useGlobalContext } from "../context";
 function FilteredData(props) {
   const { specificData } = useGlobalContext();
   const [query, setQuery] = useState(null);
-  console.log(props.game);
   function fetchQuery() {
     let newItem = props.segmentData
       .filter((item, i) => {
-        console.log(props.game);
         // prettier-ignore
         if (!props.game === "apex") {
-
-          console.log("csgo");
           return(item.metadata.name.toLowerCase() === specificData.toLowerCase() || item.attributes.key.toLowerCase() === specificData.toLowerCase())
         } else {
           return(item.metadata.name.toLowerCase() === specificData.toLowerCase())
@@ -26,12 +22,11 @@ function FilteredData(props) {
   useEffect(() => {
     fetchQuery();
   }, [specificData]);
-  console.log(query);
   if (!specificData) {
-    return <h7>Input a {props.segment}</h7>;
+    return <h6>Input a {props.segment}</h6>;
   }
   if (!query) {
-    return <h7>Input the correct {props.segment}</h7>;
+    return <h6>Input the correct {props.segment}</h6>;
   } else {
     return (
       <div className="stat-card-container">
@@ -39,13 +34,12 @@ function FilteredData(props) {
         {props.segment === "weapon" && (
           <h5>Category: {query.metadata.category.displayValue}</h5>
         )}
-        <img src={query.metadata.imageUrl}></img>
+        <img src={query.metadata.imageUrl} alt="stat chosen"></img>
         <div>
           {Object.keys(query.stats).map((stat, i) => {
-            console.log(query.stats[stat]);
             return (
               <div key={i}>
-                <h7>{query.stats[stat].displayName}</h7>
+                <h6>{query.stats[stat].displayName}</h6>
                 <div className="white-line"></div>
                 <p>{query.stats[stat].displayValue}</p>
               </div>

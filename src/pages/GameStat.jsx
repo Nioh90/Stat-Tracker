@@ -5,17 +5,8 @@ import Splitgate from "../Splitgate-bg.jpg";
 import CSGO from "../CSGO-bg.jpg";
 import ApexLegends from "../Apex-Legends-bg.jpg";
 function GameStat() {
-  const searchS = React.useRef("");
   const searchSpec = React.useRef("");
-  const {
-    name,
-    platform,
-    gameName,
-    setPlatform,
-    setName,
-    specificData,
-    setSpecificData,
-  } = useGlobalContext();
+  const { name, platform, gameName, setSpecificData } = useGlobalContext();
   const [segment, setSegment] = React.useState(null);
   const [data, setData] = React.useState([]);
   let game = gameName;
@@ -49,14 +40,8 @@ function GameStat() {
           },
         });
         const data = await response.json();
-        console.log(data);
         setData(data.data);
-      } catch (error) {
-        console.log("error");
-        console.log(error);
-      }
-    } else {
-      console.log("no segment input");
+      } catch (error) {}
     }
   }
   useEffect(() => {
@@ -74,7 +59,6 @@ function GameStat() {
   }
   function apex() {
     setSegment("legend");
-    console.log("console log");
   }
 
   if (!name || !platform) {
@@ -146,7 +130,7 @@ function GameStat() {
           )}
         </div>
         <div>
-          {(!data || data.length == 0) && segment === null ? (
+          {(!data || data.length === 0) && segment === null ? (
             <p></p>
           ) : (
             <div>

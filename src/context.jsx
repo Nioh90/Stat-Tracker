@@ -1,8 +1,7 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
   const [gameName, setGameName] = useState("");
-  const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [stats, setStats] = useState([]);
   const [name, setName] = useState("");

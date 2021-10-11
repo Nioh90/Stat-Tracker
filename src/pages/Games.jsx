@@ -1,11 +1,9 @@
 import React from "react";
 import Gamecard from "../components/Gamecard";
-import { useGlobalContext } from "../context";
 
 function Games() {
-  const { closeSubmenu } = useGlobalContext();
   return (
-    <div className="container-fluid games" onMouseOver={closeSubmenu}>
+    <div className="container-fluid games">
       <div className="games-banner">
         <h2>Check Your Stats</h2>
         <p>Track your stats in popular games Apex, Splitgate, and CSGO!</p>

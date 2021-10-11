@@ -7,7 +7,7 @@ function Home() {
   return (
     <div className="home">
       <div className="brand">
-        <video src={brand} autoPlay="true" loop="true" muted />
+        <video src={brand} autoPlay={true} loop={true} muted />
       </div>
 
       <div className="container-fluid banner">
